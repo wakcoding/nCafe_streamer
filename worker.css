@@ -1,0 +1,6 @@
+/*
+*   쇼츠 최대 y길이 설정
+*/
+.se-module.se-module-oembed:has(iframe[src^="https://www.youtube.com/embed/"]) {
+    padding-top: 56.25% !important;
+}
