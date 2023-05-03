@@ -53,11 +53,12 @@ const observer = new MutationObserver(function(mutationsList) {
                         console.log("There is commentTab");
                     
                         addedNode.innerHTML += `
-                        <button class="nCafe-Btn nCafe-GrayBtn nCafe-MoveToCommentWriter">
+                        <button id="moveToCW">
                             댓글쓰기
                         </button>
                         `;
-                        const moveToCommentWriterBtn = iframeDoc.querySelector('.nCafe-MoveToCommentWriter');
+                        const moveToCommentWriterBtn = iframeDoc.querySelector('#moveToCW');
+                        moveToCommentWriterBtn.classList.add("nCafe-Btn", "nCafe-GrayBtn", "nCafe-MoveToCommentWriter");
                         moveToCommentWriterBtn.addEventListener('click', ()=>{
                             MoveToCommentWriter();
                         });
