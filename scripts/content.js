@@ -8,9 +8,9 @@ const codes = {};
 
 codes.commentWriterTargetClass = 'comment_tab';
 codes.noticeTargetClass = 'unload';
-codes.webtoonViewerClass = 'article_wrap';
 
 codes.addedObserver = new MutationObserver(function(mutationsList) {
+    
     const iframeDoc = document.querySelector('iframe#cafe_main').contentWindow.document;
     if(!iframeDoc) return;
     for (let mutation of mutationsList) {
@@ -18,6 +18,7 @@ codes.addedObserver = new MutationObserver(function(mutationsList) {
             for (let addedNode of mutation.addedNodes) {
                 if (addedNode.classList && addedNode.classList.contains(codes.commentWriterTargetClass)) {
                     if(addedNode){
+                        
                         function MoveToCommentWriter(){
                             const location = iframeDoc.querySelector(".CommentWriter").offsetTop;
                             if(!location) console.log("There is no commentWriter.");
@@ -31,9 +32,12 @@ codes.addedObserver = new MutationObserver(function(mutationsList) {
                         `;
                         const moveToCommentWriterBtn = iframeDoc.querySelector('#moveToCW');
                         // moveToCommentWriterBtn.classList.add("nCafe-Btn", "nCafe-GrayBtn", "nCafe-MoveToCommentWriter");
+                        console.log("move to!!")
                         moveToCommentWriterBtn.addEventListener('click', ()=>{
+                            console.log("move to!!")
                             MoveToCommentWriter();
                         });
+
                     }else{
                         console.log("There is no commentTab");
                     }
@@ -47,32 +51,6 @@ codes.addedObserver = new MutationObserver(function(mutationsList) {
                     }
                 }
 
-                if(addedNode.classList && addedNode.classList.contains(codes.webtoonViewerClass)){
-                    if(addedNode){
-                        const leftArea = addedNode.querySelector('.ArticleTopBtns>.left_area');
-                        if(!leftArea) return;
-                        leftArea.innerHTML += `
-                        <button id="webtoonViewerBtn" class="nCafe-Btn nCafe-GrayBtn nCafe-webtoonViewer">
-                            웹툰뷰어
-                        </button>
-                        `;
-                        const moveToCommentWriterBtn = iframeDoc.querySelector('#moveToCW');
-                        moveToCommentWriterBtn.addEventListener('click', ()=>{
-                            const groupArea =  document.querySelector('#group-area');
-                            const isWebtoonView = groupArea.classList.contains('webtoonView');
-                            if(isWebtoonView){
-                                groupArea.classList.remove('webtoonView');
-                                document.querySelector('#main-area').classList.remove('webtoonView');
-                            }else{
-                                groupArea.classList.add('webtoonView');
-                                document.querySelector('#main-area').classList.add('webtoonView');
-                            }
-                            
-                        });
-                    }else{
-                        console.log("There is no webtoonView");
-                    }
-                }
             }
         }
     }
@@ -93,7 +71,6 @@ codes.init = ()=> {
             console.log('body had started');
             codes.addedObserver.observe(iframeDoc.querySelector('body'), { childList: true, subtree: true });
         }
-        console.log(iframeDoc.querySelector('.Article').innerHTML);
     };
 };
 
