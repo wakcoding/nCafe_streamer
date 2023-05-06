@@ -44,13 +44,11 @@ const observer = new MutationObserver(function(mutationsList) {
         if (mutation.type === 'childList') {
             for (let addedNode of mutation.addedNodes) {
                 if (addedNode.classList && addedNode.classList.contains(targetClass)) {
-                    console.log(addedNode);
                     if(addedNode){
                         function MoveToCommentWriter(){
                             const location = iframeDoc.querySelector(".CommentWriter").offsetTop;
                             window.scrollTo({top:location, behavior:'smooth'});
                         }
-                        console.log("There is commentTab");
                     
                         addedNode.innerHTML += `
                         <button id="moveToCW">
