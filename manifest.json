@@ -24,17 +24,12 @@
       "https://cafe.naver.com/*"
     ],
     "content_scripts": [
-      {
-        "js": [
-          "scripts/jquery-3.6.4.js",
-          "scripts/content.js"
-        ],
-        "css": [
-          "css/content.css"
-        ],
-        "matches": [
-          "https://cafe.naver.com/*"
-        ] 
-      }
+        {
+            "matches": ["https://cafe.naver.com/*"], 
+            "run_at": "document_idle",
+            "js": ["scripts/jquery-3.6.4.js", "scripts/content.js"],
+            "css": ["css/content.css"],
+            "all_frames": true
+        }
     ]
   }

@@ -26,3 +26,7 @@
 #upperArticleList>table>tbody>tr:nth-child(n+7)[class~="_noticeArticle"]{
     display: none;
 }
+
+._noticeArticle>.td_article>a{
+    display: none;
+}
