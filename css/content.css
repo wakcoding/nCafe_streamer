@@ -30,3 +30,17 @@
 ._noticeArticle>.td_article>a{
     display: none;
 }
+
+/* 대표 인기카페 배너, 카페 주제 없애기 */
+#ia-info-data-emblem, .area_info_box{
+    display: none;
+}
+
+.webtoonView>#main-area{
+    float: left !important;
+    margin-left: 110px;
+}
+
+.webtoonView>#group-area{
+    display: none;
+}
