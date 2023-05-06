@@ -21,3 +21,8 @@
 .se-module.se-module-oembed:has(iframe[src^="https://www.youtube.com/embed/"]) {
     padding-top: 56.25% !important;
 }
+
+/* 공지 최소화 */
+#upperArticleList>table>tbody>tr:nth-child(n+7)[class~="_noticeArticle"]{
+    display: none;
+}
