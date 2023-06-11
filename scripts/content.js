@@ -7,7 +7,6 @@ const targetClass = 'comment_tab';
 const codes = {};
 
 codes.commentWriterTargetClass = 'comment_tab';
-codes.noticeTargetClass = 'unload';
 
 codes.addedObserver = new MutationObserver(function(mutationsList) {
     
@@ -43,13 +42,6 @@ codes.addedObserver = new MutationObserver(function(mutationsList) {
                     }
                 }
 
-                if(addedNode.classList && addedNode.classList.contains(codes.noticeTargetClass)){
-                    if(addedNode){
-                        console.log(addedNode.onclick);
-                    }else{
-                        console.log("There is no notice articles");
-                    }
-                }
 
             }
         }
