@@ -1,3 +1,18 @@
+html[data-loaded="false"] #front-img {
+    transition: none !important; /* JS 적용 전 깜빡임 방지 */
+}
+
+#front-img {
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+    max-height: 500px; /* 기본적으로 열려있는 상태 */
+}
+
+#front-img[data-collapsed="true"] {
+    max-height: 0;
+}
+
+
 .nCafe-Btn{
     border-radius: 6px;
     text-align: center;
@@ -23,7 +38,7 @@
 }
 
 /* 공지 최소화 */
-#upperArticleList>table>tbody>tr:nth-child(n+7)[class~="_noticeArticle"]{
+#cafe_content>.article-board>table>tbody>tr:nth-child(n+7)[class~="board-notice"]{
     display: none;
 }
 
@@ -32,7 +47,7 @@
 }
 
 /* 대표 인기카페 배너, 카페 주제 없애기 */
-#ia-info-data-emblem, .area_info_box{
+#tab_cafe ul:last-child, .Sidebar_aside_btn_talk__QkAbj{
     display: none;
 }
 
@@ -43,4 +58,15 @@
 
 .webtoonView>#group-area{
     display: none;
+}
+
+
+/* 카페 채팅 버튼 없애기 */
+#cafe-info-action .ia-info-btn{
+    display: none !important;
+}
+
+
+.cafe-menu-tit.frst{
+    border-top-color: #e5e5e5 !important;
 }
